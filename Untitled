@@ -1,0 +1,3 @@
+docker tag ambulance-ufe <your-account>/ambulance-ufe:latest
+docker login
+docker push <your-account>/ambulance-ufe:latest
