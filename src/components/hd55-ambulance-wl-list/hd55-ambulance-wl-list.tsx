@@ -31,6 +31,13 @@ export class Hd55AmbulanceWlList {
         estimatedDurationMinutes: 15,
         condition: 'Bolesti hrdla',
       },
+      {
+        name: 'Bc. Heorhi Davydau',
+        patientId: '10029',
+        estimatedStart: new Date(Date.now() + 10 * 60),
+        estimatedDurationMinutes: 5,
+        condition: 'Kontrola',
+      },
     ]);
   }
 
