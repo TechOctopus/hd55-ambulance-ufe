@@ -25,7 +25,7 @@ export class Hd55AmbulanceWlList {
         condition: 'Teploty',
       },
       {
-        name: 'Ing. Ferdinand Trety',
+        name: 'Ing. Jozef Šefl',
         patientId: '10028',
         estimatedStart: new Date(Date.now() + 5 * 60),
         estimatedDurationMinutes: 15,
