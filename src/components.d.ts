@@ -6,10 +6,34 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface Hd55AmbulanceWlEditor {
+        "entryId": string;
+    }
     interface Hd55AmbulanceWlList {
     }
 }
+export interface Hd55AmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLHd55AmbulanceWlEditorElement;
+}
 declare global {
+    interface HTMLHd55AmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLHd55AmbulanceWlEditorElement extends Components.Hd55AmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLHd55AmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLHd55AmbulanceWlEditorElement, ev: Hd55AmbulanceWlEditorCustomEvent<HTMLHd55AmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLHd55AmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLHd55AmbulanceWlEditorElement, ev: Hd55AmbulanceWlEditorCustomEvent<HTMLHd55AmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLHd55AmbulanceWlEditorElement: {
+        prototype: HTMLHd55AmbulanceWlEditorElement;
+        new (): HTMLHd55AmbulanceWlEditorElement;
+    };
     interface HTMLHd55AmbulanceWlListElement extends Components.Hd55AmbulanceWlList, HTMLStencilElement {
     }
     var HTMLHd55AmbulanceWlListElement: {
@@ -17,13 +41,24 @@ declare global {
         new (): HTMLHd55AmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "hd55-ambulance-wl-editor": HTMLHd55AmbulanceWlEditorElement;
         "hd55-ambulance-wl-list": HTMLHd55AmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface Hd55AmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: Hd55AmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface Hd55AmbulanceWlList {
     }
+
+    interface Hd55AmbulanceWlEditorAttributes {
+        "entryId": string;
+    }
+
     interface IntrinsicElements {
+        "hd55-ambulance-wl-editor": Omit<Hd55AmbulanceWlEditor, keyof Hd55AmbulanceWlEditorAttributes> & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes]?: Hd55AmbulanceWlEditor[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `attr:${K}`]?: Hd55AmbulanceWlEditorAttributes[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `prop:${K}`]?: Hd55AmbulanceWlEditor[K] };
         "hd55-ambulance-wl-list": Hd55AmbulanceWlList;
     }
 }
@@ -31,6 +66,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hd55-ambulance-wl-editor": LocalJSX.IntrinsicElements["hd55-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLHd55AmbulanceWlEditorElement>;
             "hd55-ambulance-wl-list": LocalJSX.IntrinsicElements["hd55-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLHd55AmbulanceWlListElement>;
         }
     }
