@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface Hd55AmbulanceWlApp {
+        /**
+          * @default ''
+         */
+        "basePath": string;
+    }
     interface Hd55AmbulanceWlEditor {
         "entryId": string;
     }
@@ -16,7 +22,17 @@ export interface Hd55AmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLHd55AmbulanceWlEditorElement;
 }
+export interface Hd55AmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLHd55AmbulanceWlListElement;
+}
 declare global {
+    interface HTMLHd55AmbulanceWlAppElement extends Components.Hd55AmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLHd55AmbulanceWlAppElement: {
+        prototype: HTMLHd55AmbulanceWlAppElement;
+        new (): HTMLHd55AmbulanceWlAppElement;
+    };
     interface HTMLHd55AmbulanceWlEditorElementEventMap {
         "editor-closed": string;
     }
@@ -34,30 +50,53 @@ declare global {
         prototype: HTMLHd55AmbulanceWlEditorElement;
         new (): HTMLHd55AmbulanceWlEditorElement;
     };
+    interface HTMLHd55AmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLHd55AmbulanceWlListElement extends Components.Hd55AmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLHd55AmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLHd55AmbulanceWlListElement, ev: Hd55AmbulanceWlListCustomEvent<HTMLHd55AmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLHd55AmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLHd55AmbulanceWlListElement, ev: Hd55AmbulanceWlListCustomEvent<HTMLHd55AmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLHd55AmbulanceWlListElement: {
         prototype: HTMLHd55AmbulanceWlListElement;
         new (): HTMLHd55AmbulanceWlListElement;
     };
     interface HTMLElementTagNameMap {
+        "hd55-ambulance-wl-app": HTMLHd55AmbulanceWlAppElement;
         "hd55-ambulance-wl-editor": HTMLHd55AmbulanceWlEditorElement;
         "hd55-ambulance-wl-list": HTMLHd55AmbulanceWlListElement;
     }
 }
 declare namespace LocalJSX {
+    interface Hd55AmbulanceWlApp {
+        /**
+          * @default ''
+         */
+        "basePath"?: string;
+    }
     interface Hd55AmbulanceWlEditor {
         "entryId"?: string;
         "onEditor-closed"?: (event: Hd55AmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface Hd55AmbulanceWlList {
+        "onEntry-clicked"?: (event: Hd55AmbulanceWlListCustomEvent<string>) => void;
     }
 
+    interface Hd55AmbulanceWlAppAttributes {
+        "basePath": string;
+    }
     interface Hd55AmbulanceWlEditorAttributes {
         "entryId": string;
     }
 
     interface IntrinsicElements {
+        "hd55-ambulance-wl-app": Omit<Hd55AmbulanceWlApp, keyof Hd55AmbulanceWlAppAttributes> & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes]?: Hd55AmbulanceWlApp[K] } & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes as `attr:${K}`]?: Hd55AmbulanceWlAppAttributes[K] } & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes as `prop:${K}`]?: Hd55AmbulanceWlApp[K] };
         "hd55-ambulance-wl-editor": Omit<Hd55AmbulanceWlEditor, keyof Hd55AmbulanceWlEditorAttributes> & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes]?: Hd55AmbulanceWlEditor[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `attr:${K}`]?: Hd55AmbulanceWlEditorAttributes[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `prop:${K}`]?: Hd55AmbulanceWlEditor[K] };
         "hd55-ambulance-wl-list": Hd55AmbulanceWlList;
     }
@@ -66,6 +105,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "hd55-ambulance-wl-app": LocalJSX.IntrinsicElements["hd55-ambulance-wl-app"] & JSXBase.HTMLAttributes<HTMLHd55AmbulanceWlAppElement>;
             "hd55-ambulance-wl-editor": LocalJSX.IntrinsicElements["hd55-ambulance-wl-editor"] & JSXBase.HTMLAttributes<HTMLHd55AmbulanceWlEditorElement>;
             "hd55-ambulance-wl-list": LocalJSX.IntrinsicElements["hd55-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLHd55AmbulanceWlListElement>;
         }
