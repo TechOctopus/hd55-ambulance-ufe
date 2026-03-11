@@ -15,6 +15,8 @@ export class Hd55AmbulanceWlApp {
   @State() private relativePath = '';
 
   @Prop() basePath: string = '';
+  @Prop() apiBase: string;
+  @Prop() ambulanceId: string;
 
   componentWillLoad() {
     const baseUri = new URL(this.basePath, document.baseURI || '/').pathname;
@@ -57,7 +59,11 @@ export class Hd55AmbulanceWlApp {
         {element === 'editor' ? (
           <hd55-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></hd55-ambulance-wl-editor>
         ) : (
-          <hd55-ambulance-wl-list onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}></hd55-ambulance-wl-list>
+          <hd55-ambulance-wl-list
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            onentry-clicked={(ev: CustomEvent<string>) => navigate('./entry/' + ev.detail)}
+          ></hd55-ambulance-wl-list>
         )}
       </Host>
     );

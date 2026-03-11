@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface Hd55AmbulanceWlApp {
+        "ambulanceId": string;
+        "apiBase": string;
         /**
           * @default ''
          */
@@ -16,6 +18,8 @@ export namespace Components {
         "entryId": string;
     }
     interface Hd55AmbulanceWlList {
+        "ambulanceId": string;
+        "apiBase": string;
     }
 }
 export interface Hd55AmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
@@ -75,6 +79,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface Hd55AmbulanceWlApp {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         /**
           * @default ''
          */
@@ -85,20 +91,28 @@ declare namespace LocalJSX {
         "onEditor-closed"?: (event: Hd55AmbulanceWlEditorCustomEvent<string>) => void;
     }
     interface Hd55AmbulanceWlList {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "onEntry-clicked"?: (event: Hd55AmbulanceWlListCustomEvent<string>) => void;
     }
 
     interface Hd55AmbulanceWlAppAttributes {
         "basePath": string;
+        "apiBase": string;
+        "ambulanceId": string;
     }
     interface Hd55AmbulanceWlEditorAttributes {
         "entryId": string;
+    }
+    interface Hd55AmbulanceWlListAttributes {
+        "apiBase": string;
+        "ambulanceId": string;
     }
 
     interface IntrinsicElements {
         "hd55-ambulance-wl-app": Omit<Hd55AmbulanceWlApp, keyof Hd55AmbulanceWlAppAttributes> & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes]?: Hd55AmbulanceWlApp[K] } & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes as `attr:${K}`]?: Hd55AmbulanceWlAppAttributes[K] } & { [K in keyof Hd55AmbulanceWlApp & keyof Hd55AmbulanceWlAppAttributes as `prop:${K}`]?: Hd55AmbulanceWlApp[K] };
         "hd55-ambulance-wl-editor": Omit<Hd55AmbulanceWlEditor, keyof Hd55AmbulanceWlEditorAttributes> & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes]?: Hd55AmbulanceWlEditor[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `attr:${K}`]?: Hd55AmbulanceWlEditorAttributes[K] } & { [K in keyof Hd55AmbulanceWlEditor & keyof Hd55AmbulanceWlEditorAttributes as `prop:${K}`]?: Hd55AmbulanceWlEditor[K] };
-        "hd55-ambulance-wl-list": Hd55AmbulanceWlList;
+        "hd55-ambulance-wl-list": Omit<Hd55AmbulanceWlList, keyof Hd55AmbulanceWlListAttributes> & { [K in keyof Hd55AmbulanceWlList & keyof Hd55AmbulanceWlListAttributes]?: Hd55AmbulanceWlList[K] } & { [K in keyof Hd55AmbulanceWlList & keyof Hd55AmbulanceWlListAttributes as `attr:${K}`]?: Hd55AmbulanceWlListAttributes[K] } & { [K in keyof Hd55AmbulanceWlList & keyof Hd55AmbulanceWlListAttributes as `prop:${K}`]?: Hd55AmbulanceWlList[K] };
     }
 }
 export { LocalJSX as JSX };
