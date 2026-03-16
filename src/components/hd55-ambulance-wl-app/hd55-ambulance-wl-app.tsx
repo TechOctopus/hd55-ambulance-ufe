@@ -41,6 +41,8 @@ export class Hd55AmbulanceWlApp {
   }
 
   render() {
+    console.debug('hd55-ambulance-wl-app.render() - path: %s', this.relativePath);
+
     let element = 'list';
     let entryId = '@new';
 
