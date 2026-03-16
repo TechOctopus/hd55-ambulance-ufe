@@ -15,6 +15,8 @@ export namespace Components {
         "basePath": string;
     }
     interface Hd55AmbulanceWlEditor {
+        "ambulanceId": string;
+        "apiBase": string;
         "entryId": string;
     }
     interface Hd55AmbulanceWlList {
@@ -87,6 +89,8 @@ declare namespace LocalJSX {
         "basePath"?: string;
     }
     interface Hd55AmbulanceWlEditor {
+        "ambulanceId"?: string;
+        "apiBase"?: string;
         "entryId"?: string;
         "onEditor-closed"?: (event: Hd55AmbulanceWlEditorCustomEvent<string>) => void;
     }
@@ -103,6 +107,8 @@ declare namespace LocalJSX {
     }
     interface Hd55AmbulanceWlEditorAttributes {
         "entryId": string;
+        "ambulanceId": string;
+        "apiBase": string;
     }
     interface Hd55AmbulanceWlListAttributes {
         "apiBase": string;

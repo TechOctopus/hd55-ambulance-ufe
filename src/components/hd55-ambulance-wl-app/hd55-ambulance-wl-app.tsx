@@ -57,7 +57,12 @@ export class Hd55AmbulanceWlApp {
     return (
       <Host>
         {element === 'editor' ? (
-          <hd55-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></hd55-ambulance-wl-editor>
+          <hd55-ambulance-wl-editor
+            entry-id={entryId}
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            oneditor-closed={() => navigate('./list')}
+          ></hd55-ambulance-wl-editor>
         ) : (
           <hd55-ambulance-wl-list
             ambulance-id={this.ambulanceId}
